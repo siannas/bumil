@@ -15,12 +15,14 @@ class CreateLoket extends Migration
     {
         Schema::create('loket', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('puskesmas_id');
+            $table->integer('puskesmas_id')->unsigned();
             $table->integer('antrian');
             $table->integer('antrian_akhir');
             $table->string('jenis');
             $table->timestamps();
-            $table->foreign('puskesmas_id')->references('id')->on('puskesmas');
+            $table->foreign('puskesmas_id')->references('id')->on('puskesmas')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

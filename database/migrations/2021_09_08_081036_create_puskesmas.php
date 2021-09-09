@@ -13,10 +13,12 @@ class CreatePuskesmas extends Migration
      */
     public function up()
     {
-        Schema::create('puskemas', function (Blueprint $table) {
+        Schema::create('puskesmas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
             $table->string('alamat');
+            $table->string('username');
+            $table->string('password');
             $table->timestamps();
         });
     }
